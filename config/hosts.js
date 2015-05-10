@@ -128,34 +128,78 @@ module.exports =
 	},
 
 	{
-		name:'Network Management Server 1 (Flim)',
+		name:'NetManager 1 Packages (Flim)',
 		host: '192.168.2.10',
-		port: 22,
-		protocol: 'tcp',
-		ping_service_name: 'tcp',
-		timeout: 5000,
-		ping_interval: 10,
+		port: 100,
+		protocol: 'http',
+		ping_service_name: 'http',
+		timeout: 10000,
+		ping_interval: 15,
 		failed_ping_interval: 3,
 		enabled: true,
-		warning_if_takes_more_than: 1500,
+		warning_if_takes_more_than: 2500,
 		services : [{
-			name : "SSH"
+			name: 'list',
+			method: 'get',
+			url : '/list',
+			expected: {statuscode: 200}
 		}]
 	},
 
 	{
-		name:'Network Management Server 2 (Flam)',
+		name:'NetManager 2 Packages (Flam)',
 		host: '192.168.2.11',
-		port: 22,
-		protocol: 'tcp',
-		ping_service_name: 'tcp',
-		timeout: 5000,
-		ping_interval: 10,
+		port: 100,
+		protocol: 'http',
+		ping_service_name: 'http',
+		timeout: 10000,
+		ping_interval: 15,
 		failed_ping_interval: 3,
 		enabled: true,
-		warning_if_takes_more_than: 1500,
+		warning_if_takes_more_than: 2500,
 		services : [{
-			name : "SSH"
+			name: 'list',
+			method: 'get',
+			url : '/list',
+			expected: {statuscode: 200}
+		}]
+	},
+
+	{
+		name:'NetManager 1 Walledgarden (Flim)',
+		host: '192.168.2.10',
+		port: 80,
+		protocol: 'http',
+		ping_service_name: 'http',
+		timeout: 10000,
+		ping_interval: 15,
+		failed_ping_interval: 3,
+		enabled: true,
+		warning_if_takes_more_than: 2500,
+		services : [{
+			name: 'list',
+			method: 'get',
+			url : '/',
+			expected: {statuscode: 200}
+		}]
+	},
+
+	{
+		name:'NetManager 2 Walledgarden (Flam)',
+		host: '192.168.2.11',
+		port: 80,
+		protocol: 'http',
+		ping_service_name: 'http',
+		timeout: 10000,
+		ping_interval: 15,
+		failed_ping_interval: 3,
+		enabled: true,
+		warning_if_takes_more_than: 2500,
+		services : [{
+			name: 'list',
+			method: 'get',
+			url : '/',
+			expected: {statuscode: 200}
 		}]
 	},
 
